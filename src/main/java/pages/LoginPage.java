@@ -70,7 +70,11 @@ public class LoginPage extends Page{
 
 
     public void clickChangeAccount() throws IOException, InstantiationException, NoSuchLocatorException, CloneNotSupportedException, IllegalAccessException {
-    web.clickElement("ChangeAccount");
+        web.clickElement("ChangeAccount");
+    }
+
+    public void selectLanguage(String lang) throws IOException, InstantiationException, NoSuchLocatorException, CloneNotSupportedException, IllegalAccessException {
+        web.selectFromList("Language",lang);
     }
 
 }

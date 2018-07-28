@@ -151,7 +151,7 @@ public class TestsLoginPage extends Fixture{
         assertTrue(gmail.web.isElementPresent("CreateAccountForm"));
     }
 
-    @Test
+    //@Test
     public void currentLoginAndPass() throws NoSuchLocatorException, InstantiationException, IllegalAccessException, CloneNotSupportedException, IOException {
         gmail.loginPage.openPage();
         gmail.loginPage.inputLogin("telishuk.t@gmail.com");
@@ -161,6 +161,12 @@ public class TestsLoginPage extends Fixture{
         gmail.loginPage.clickLogout();
         assertTrue(gmail.web.isElementPresent("MenuPresentation"));
         gmail.loginPage.clickChangeAccount();
+    }
+
+    @Test
+    public void clickChangeLanguage() throws IllegalAccessException, InstantiationException, NoSuchLocatorException, CloneNotSupportedException, IOException {
+        gmail.loginPage.openPage();
+        gmail.loginPage.selectLanguage("mn");
     }
 
 }
