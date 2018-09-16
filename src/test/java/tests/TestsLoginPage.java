@@ -5,9 +5,7 @@ import utils.Fixture;
 import utils.NoSuchLocatorException;
 import java.io.IOException;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 
 public class TestsLoginPage extends Fixture{
@@ -54,7 +52,7 @@ public class TestsLoginPage extends Fixture{
     @Test
     public void inputLoginUnicode() throws NoSuchLocatorException, InstantiationException, IllegalAccessException, CloneNotSupportedException, IOException {
         gmail.loginPage.openPage();
-        gmail.loginPage.inputLogin("<telishuk.t@gmail.com>");
+        gmail.loginPage.inputLogin("<*******@gmail.com>");
         gmail.loginPage.clickButtonNextLogin();
         assertEquals(gmail.web.getElementsText("ErrorLogin"),"Введите адрес электронной почты или номер телефона");
     }
@@ -70,7 +68,7 @@ public class TestsLoginPage extends Fixture{
     @Test
     public void inputLoginAndClickEnter() throws NoSuchLocatorException, InstantiationException, IllegalAccessException, CloneNotSupportedException, IOException {
         gmail.loginPage.openPage();
-        gmail.loginPage.clickButtonEnter("telishuk.t@gmail.com");
+        gmail.loginPage.clickButtonEnter("*******@gmail.com");
         assertTrue(gmail.web.isElementPresent("PassForm"));
     }
 
@@ -93,15 +91,15 @@ public class TestsLoginPage extends Fixture{
     @Test
     public void currentLogin() throws NoSuchLocatorException, InstantiationException, IllegalAccessException, CloneNotSupportedException, IOException {
         gmail.loginPage.openPage();
-        gmail.loginPage.inputLogin("telishuk.t@gmail.com");
+        gmail.loginPage.inputLogin("*******@gmail.com");
         gmail.loginPage.clickButtonNextLogin();
-        assertEquals(gmail.web.getElementsText("ProfileIdentifier"),"telishuk.t@gmail.com");
+        assertEquals(gmail.web.getElementsText("ProfileIdentifier"),"*******@gmail.com");
     }
 
     @Test
     public void inputPassFieldEmpty() throws NoSuchLocatorException, InstantiationException, IllegalAccessException, CloneNotSupportedException, IOException {
         gmail.loginPage.openPage();
-        gmail.loginPage.inputLogin("telishuk.t@gmail.com");
+        gmail.loginPage.inputLogin("*******@gmail.com");
         gmail.loginPage.clickButtonNextLogin();
         gmail.loginPage.waitLoadPassMenu();
         gmail.loginPage.clickButtonNextPass();
@@ -110,7 +108,7 @@ public class TestsLoginPage extends Fixture{
    @Test
     public void inputWrongPass() throws NoSuchLocatorException, InstantiationException, IllegalAccessException, CloneNotSupportedException, IOException {
         gmail.loginPage.openPage();
-        gmail.loginPage.inputLogin("telishuk.t@gmail.com");
+        gmail.loginPage.inputLogin("*******@gmail.com");
         gmail.loginPage.clickButtonNextLogin();
         gmail.loginPage.inputPassword(gmail.randomData.getRandomLongString());
         gmail.loginPage.clickButtonNextPass();
@@ -120,7 +118,7 @@ public class TestsLoginPage extends Fixture{
     @Test
     public void inputEmptyPass() throws NoSuchLocatorException, InstantiationException, IllegalAccessException, CloneNotSupportedException, IOException {
         gmail.loginPage.openPage();
-        gmail.loginPage.inputLogin("telishuk.t@gmail.com");
+        gmail.loginPage.inputLogin("*******@gmail.com");
         gmail.loginPage.clickButtonNextLogin();
         gmail.loginPage.inputPassword("");
         gmail.loginPage.clickButtonNextPass();
@@ -130,7 +128,7 @@ public class TestsLoginPage extends Fixture{
     @Test
     public void returnToLoginForm() throws NoSuchLocatorException, InstantiationException, IllegalAccessException, CloneNotSupportedException, IOException {
         gmail.loginPage.openPage();
-        gmail.loginPage.inputLogin("telishuk.t@gmail.com");
+        gmail.loginPage.inputLogin("*******@gmail.com");
         gmail.loginPage.clickButtonNextLogin();
         gmail.loginPage.waitLoadPassMenu();
         gmail.loginPage.clickChangeLogin();
@@ -154,9 +152,9 @@ public class TestsLoginPage extends Fixture{
     //@Test
     public void currentLoginAndPass() throws NoSuchLocatorException, InstantiationException, IllegalAccessException, CloneNotSupportedException, IOException {
         gmail.loginPage.openPage();
-        gmail.loginPage.inputLogin("telishuk.t@gmail.com");
+        gmail.loginPage.inputLogin("*******@gmail.com");
         gmail.loginPage.clickButtonNextLogin();
-        gmail.loginPage.inputPassword("gfhjkm100");
+        gmail.loginPage.inputPassword("*******");
         gmail.loginPage.clickButtonNextPass();
         gmail.loginPage.clickLogout();
         assertTrue(gmail.web.isElementPresent("MenuPresentation"));
